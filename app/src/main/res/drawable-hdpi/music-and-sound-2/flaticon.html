@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flaticon WebFont</title>
+    <link rel="stylesheet" type="text/css" href="flaticon.css">
+    <meta charset="UTF-8">
+    <style>
+    body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 20px;
+        color:#333;
+    }
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+        font-family: Flaticon;
+        font-size: 30px;
+        font-style: normal;
+        margin-left: 20px;
+        color: #333;
+    }
+    .image p {
+		font-size: 12px;
+		margin: 0px;
+		clear: none;
+		width: 300px;
+		line-height: 40px;
+	}
+    .text {
+        float: left;
+        font-size:14px;
+        margin-top: 15px;
+    }
+    .text ul {
+        margin-left:0px;
+        color:#111;
+        margin-bottom:20px;
+    }
+    .text .ex {
+        font-size:12px;
+        color:#666;
+        margin-left:35px;
+        display:block;
+    }
+    .text ul li {
+        margin-top:10px;
+        list-style:none;
+    }
+    .num {
+        background:#66A523;
+        color:#fff;
+        border-radius:20px;
+        padding:1px;
+        display:inline-block;
+        width:22px;
+        height:22px;
+        text-align:center;
+        margin-right: 5px;
+    }
+    .text ul strong {
+        font-weight:normal;
+        color:#000;
+    }
+    .image {
+        width: 280px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 30px;
+    }
+    #glyphs {
+        clear: both;
+    }
+    .image p:nth-child(even) i {
+        clear: none;
+    }
+    .glyph {
+        display: inline-block;
+        width: 120px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: top;
+        background: #FFF;
+    }
+    .glyph .glyph-icon {
+        padding: 10px;
+        display: block;
+        font-family:"Flaticon";
+        font-size: 64px;
+        line-height: 1;
+    }
+    .glyph .glyph-icon:before {
+        font-size: 64px;
+        color: #666;
+        margin-left: 0;
+    }
+    .class-name {
+        font-size: 12px;
+    }
+    .author-name {
+		font-size: 10px;
+	}
+	a{
+		color: #66A523;
+	}
+    .instructions {
+        font-style:italic;
+        font-size:22px;
+        margin-bottom:10px;
+    }
+    .iconsuse {
+        font-size:22px;
+        font-style:italic;
+        padding-top:20px;
+        margin-top:20px;
+        border-top:1px solid #bbb;
+    }
+    .usetitle {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .class-name:last-child {
+        font-size: 10px;
+        color:#888;
+    }
+    .class-name:last-child a {
+        font-size: 10px;
+        color:#555;
+    }
+    .class-name:last-child a:hover {
+        color:#66A523;
+    }
+    .glyph > input {
+        display: block;
+        width: 100px;
+        margin: 5px auto;
+        text-align: center;
+        font-size: 12px;
+        cursor: text;
+    }
+    .glyph > input.icon-input {
+        font-family:"Flaticon";
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    h1.logo {
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin-top: -16px;
+        text-transform: lowercase;
+        border-bottom:1px solid #bbb;
+    }
+    h1.logo strong {
+        font-size: 16px;
+        font-family:sans-serif;
+        font-weight:normal;
+        color:#333;
+    }
+    h1.logo a {
+        color:#34302d;
+        text-decoration: none;
+    }
+    h1.logo a span {
+        color:#66A523;
+    }
+    #footer {
+        padding-top:40px;
+        clear:both;
+        text-align:center;
+    }
+    #footer a {
+        color:#66A523;
+    }
+    textarea {
+		margin: 0px;
+		width: 800px;
+		height: 150px;
+		border: 1px solid #CCC;
+		resize: none;
+		background: #EEE;
+    }
+    .author-link, .attrDiv a{
+    	font-size: 12px;
+    	color: #333;
+    	text-decoration: none;
+    }
+    .external {
+    	display: block;
+    }
+    .attrDiv {
+		font-size: 12px;
+	}
+    .attribution {
+        border-top: 1px solid #AAA;
+        margin: 10px 0;
+        padding-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="http://www.flaticon.com">
+                <span>FLAT</span>ICON</a>
+            <strong>Font Demo</strong>
+        </h1>
+    </header>
+
+    <section class="demo">
+        <div class="text">
+
+            <div class="instructions">Instructions:</div>
+
+            <ul>
+                <li>
+                    <p>
+                        <span class="num">1</span>Copy the "Fonts" files and CSS files to your website CSS folder.
+                </li>
+                <li>
+                    <p>
+                        <span class="num">2</span>Add the CSS link to your website source code on header.
+                        <br />
+                        <span class="ex">&lt;head&gt;
+                            <br/>...
+                            <br/>&lt;link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"&gt;
+                            <br/>...
+                            <br/>&lt;/head&gt;</span>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="num">3</span>Use the icon class on "display:inline" elements:
+                        <br />
+                        <span class="ex">Use example: &lt;i class=&quot;flaticon-airplane49&quot;&gt;&lt;/i&gt; or &lt;span class=&quot;flaticon-airplane49&quot;&gt;&lt;/span&gt;</span>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="glyphs"><div class="glyph">
+		<div class="glyph-icon flaticon-abstract4"></div>
+		<div class="class-name">.flaticon-abstract4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/abstract-shape-electric-guitar_27232">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-accordion2"></div>
+		<div class="class-name">.flaticon-accordion2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/accordion-side-view_26956">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-accordion3"></div>
+		<div class="class-name">.flaticon-accordion3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/accordion-silhouette-with-white-details_27385">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-acoustic1"></div>
+		<div class="class-name">.flaticon-acoustic1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/acoustic-guitar-with-silhouette_27384">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-acoustic"></div>
+		<div class="class-name">.flaticon-acoustic</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/acoustic-guitar-silhouette_27120">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-aerial2"></div>
+		<div class="class-name">.flaticon-aerial2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/aerial-microphone_26838">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-african1"></div>
+		<div class="class-name">.flaticon-african1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/african-drum-with-stand_27089">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-african2"></div>
+		<div class="class-name">.flaticon-african2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/african-drum-set-with-design_27311">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-african"></div>
+		<div class="class-name">.flaticon-african</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/african-tall-drum-with-stand_27079">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-apple23"></div>
+		<div class="class-name">.flaticon-apple23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/apple-ipod-shuffle-with-earphones_27241">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-apple24"></div>
+		<div class="class-name">.flaticon-apple24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/apple-ipod-with-musical-note-symbol_27313">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio30"></div>
+		<div class="class-name">.flaticon-audio30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-amplification_27071">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio31"></div>
+		<div class="class-name">.flaticon-audio31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-jack-connector_27135">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio32"></div>
+		<div class="class-name">.flaticon-audio32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-equipment-connector_27137">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio33"></div>
+		<div class="class-name">.flaticon-audio33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-equalizer-device_27217">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-bar11"></div>
+		<div class="class-name">.flaticon-bar11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/bar-lines-variant_27153">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-bass3"></div>
+		<div class="class-name">.flaticon-bass3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/bass-guitar-black-silhouette_26878">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-boombox1"></div>
+		<div class="class-name">.flaticon-boombox1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/boombox-cartoon-variant_27175">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-broadcasting1"></div>
+		<div class="class-name">.flaticon-broadcasting1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/broadcasting-microphone_27078">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-butterfly7"></div>
+		<div class="class-name">.flaticon-butterfly7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/butterfly-shaped-brush_27469">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cartoon4"></div>
+		<div class="class-name">.flaticon-cartoon4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cartoon-man-holding-sticks_27344">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cassette13"></div>
+		<div class="class-name">.flaticon-cassette13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cassette-outline_26844">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cassette14"></div>
+		<div class="class-name">.flaticon-cassette14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cassette-tape-cartoon-variant_27297">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circle38"></div>
+		<div class="class-name">.flaticon-circle38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circle-in-black-of-a-drum-top-view_26816">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular63"></div>
+		<div class="class-name">.flaticon-circular63</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-speaker-with-white-detailing_27116">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular64"></div>
+		<div class="class-name">.flaticon-circular64</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-headphones-side-view_27247">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular65"></div>
+		<div class="class-name">.flaticon-circular65</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-microphone-with-cord-and-jack_27256">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-classic7"></div>
+		<div class="class-name">.flaticon-classic7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/classic-acoustic-guitar_27234">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-compact9"></div>
+		<div class="class-name">.flaticon-compact9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/compact-disc-board-player_27376">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-computer77"></div>
+		<div class="class-name">.flaticon-computer77</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/computer-speaker-with-stand_27220">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-computer78"></div>
+		<div class="class-name">.flaticon-computer78</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/computer-headset_27240">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-connected11"></div>
+		<div class="class-name">.flaticon-connected11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/connected-sixteenth-note_27271">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cord3"></div>
+		<div class="class-name">.flaticon-cord3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cord-microphone_27201">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc3"></div>
+		<div class="class-name">.flaticon-disc3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-circles_26928">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc4"></div>
+		<div class="class-name">.flaticon-disc4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-burning-folder_27094">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc5"></div>
+		<div class="class-name">.flaticon-disc5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-jockey-control-booth_27246">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc6"></div>
+		<div class="class-name">.flaticon-disc6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-jockey-with-shades-and-headphones-at-dj-booth_27299">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc7"></div>
+		<div class="class-name">.flaticon-disc7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-jockey-on-his-booth-cartoon-variant_27326">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-disc8"></div>
+		<div class="class-name">.flaticon-disc8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/disc-jockey-digital-controllers_27391">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download64"></div>
+		<div class="class-name">.flaticon-download64</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download-musical-theme-symbol-of-a-music-note-with-an-arrow-pointing-down_26867">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download65"></div>
+		<div class="class-name">.flaticon-download65</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download-album-to-computer_27455">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum12"></div>
+		<div class="class-name">.flaticon-drum12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-of-tall-and-black-shape_26897">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum13"></div>
+		<div class="class-name">.flaticon-drum13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-thin-and-tall-percussion-instrument-of-african-style_26996">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum14"></div>
+		<div class="class-name">.flaticon-drum14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-variant_27012">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum15"></div>
+		<div class="class-name">.flaticon-drum15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum_27070">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum16"></div>
+		<div class="class-name">.flaticon-drum16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-sticks-variant_27193">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum17"></div>
+		<div class="class-name">.flaticon-drum17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-set-cartoon-variant_27328">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drum18"></div>
+		<div class="class-name">.flaticon-drum18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drum-and-drumsticks-top-view_27458">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drums2"></div>
+		<div class="class-name">.flaticon-drums2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drums-pair_26995">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-earphones2"></div>
+		<div class="class-name">.flaticon-earphones2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/earphones-with-cord_27213">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-eighth1"></div>
+		<div class="class-name">.flaticon-eighth1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/eighth-note-and-selector-arrows_27364">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-eighth"></div>
+		<div class="class-name">.flaticon-eighth</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/eighth-note_27352">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric26"></div>
+		<div class="class-name">.flaticon-electric26</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-for-heavy-rock-music_26817">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric27"></div>
+		<div class="class-name">.flaticon-electric27</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-for-heavy-metal_26827">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric28"></div>
+		<div class="class-name">.flaticon-electric28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-black-silhouette_26879">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric29"></div>
+		<div class="class-name">.flaticon-electric29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-sharpen-black-shape_26943">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric30"></div>
+		<div class="class-name">.flaticon-electric30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-with-jagged-edges_27093">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric31"></div>
+		<div class="class-name">.flaticon-electric31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-variant-silhouette_27205">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric32"></div>
+		<div class="class-name">.flaticon-electric32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-with-several-spikes_27249">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric33"></div>
+		<div class="class-name">.flaticon-electric33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-bass-guitar-silhouette_27258">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric34"></div>
+		<div class="class-name">.flaticon-electric34</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-with-sharp-tip-edges-for-rockstar_27323">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-electric35"></div>
+		<div class="class-name">.flaticon-electric35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/electric-guitar-with-sharp-tips-variant_27392">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-fast17"></div>
+		<div class="class-name">.flaticon-fast17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/fast-forward-arrows-button_27190">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-fast18"></div>
+		<div class="class-name">.flaticon-fast18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/fast-forward-arrowhead-symbol_27284">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flute3"></div>
+		<div class="class-name">.flaticon-flute3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flute_26841">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flute4"></div>
+		<div class="class-name">.flaticon-flute4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flute-musical-wind-instrument_26985">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flute5"></div>
+		<div class="class-name">.flaticon-flute5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flute-with-huge-horn-opening_27253">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-folder67"></div>
+		<div class="class-name">.flaticon-folder67</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-of-music-selection_26824">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-folder68"></div>
+		<div class="class-name">.flaticon-folder68</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-with-electric-guitar-symbol_27306">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-grand1"></div>
+		<div class="class-name">.flaticon-grand1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/grand-piano_27066">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-grid7"></div>
+		<div class="class-name">.flaticon-grid7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/grid-disco-ball_27162">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar20"></div>
+		<div class="class-name">.flaticon-guitar20</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-black-shape_26843">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar21"></div>
+		<div class="class-name">.flaticon-guitar21</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-heart-shaped_26905">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar22"></div>
+		<div class="class-name">.flaticon-guitar22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-black-silhouette-of-original-shape_26944">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar23"></div>
+		<div class="class-name">.flaticon-guitar23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-musical-instrument-of-unique-shape_26994">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar24"></div>
+		<div class="class-name">.flaticon-guitar24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-music-instrument_27015">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar25"></div>
+		<div class="class-name">.flaticon-guitar25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-black-shape_27073">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar26"></div>
+		<div class="class-name">.flaticon-guitar26</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-pedal-board_27214">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar27"></div>
+		<div class="class-name">.flaticon-guitar27</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-silhouette-with-big-hole_27333">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar28"></div>
+		<div class="class-name">.flaticon-guitar28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-with-irregular-shape_27379">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-hand45"></div>
+		<div class="class-name">.flaticon-hand45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/hand-microphone_26964">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-happy11"></div>
+		<div class="class-name">.flaticon-happy11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/happy-face-with-headphones_27462">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-harmonic"></div>
+		<div class="class-name">.flaticon-harmonic</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/harmonic-instrument_27371">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-hat5"></div>
+		<div class="class-name">.flaticon-hat5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/hat-with-checkered-ribbon_26887">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-hdmi"></div>
+		<div class="class-name">.flaticon-hdmi</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/hdmi-connector_26865">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-head14"></div>
+		<div class="class-name">.flaticon-head14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/head-protector-gear_27138">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphone4"></div>
+		<div class="class-name">.flaticon-headphone4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphone-symbol_27130">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphone5"></div>
+		<div class="class-name">.flaticon-headphone5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphone-variant-with-microphone_27456">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphones12"></div>
+		<div class="class-name">.flaticon-headphones12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphones-with-music-note_26834">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphones13"></div>
+		<div class="class-name">.flaticon-headphones13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphones-side-view_27085">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-heavy2"></div>
+		<div class="class-name">.flaticon-heavy2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/heavy-metal-sharpen-guitar-like-an-insect_26965">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-horn1"></div>
+		<div class="class-name">.flaticon-horn1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/horn-curve-variant_27160">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-inear"></div>
+		<div class="class-name">.flaticon-inear</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/in-ear-earphones-with-cord_27336">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-insect2"></div>
+		<div class="class-name">.flaticon-insect2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/insect-shaped-guitar_27377">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-iphone5"></div>
+		<div class="class-name">.flaticon-iphone5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/iphone-music-player_27125">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-iphone6"></div>
+		<div class="class-name">.flaticon-iphone6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/iphone-with-musical-note_27290">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-ipod10"></div>
+		<div class="class-name">.flaticon-ipod10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/ipod-classic-with-video-play-button_27291">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-ipod8"></div>
+		<div class="class-name">.flaticon-ipod8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/ipod-front-view_27001">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-ipod9"></div>
+		<div class="class-name">.flaticon-ipod9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/ipod-files-folder_27264">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-jbl"></div>
+		<div class="class-name">.flaticon-jbl</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/jbl-audio-amplification-equipment_26987">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-love12"></div>
+		<div class="class-name">.flaticon-love12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/love-songs-folder_27239">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-male101"></div>
+		<div class="class-name">.flaticon-male101</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/male-playing-cello_27343">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-male102"></div>
+		<div class="class-name">.flaticon-male102</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/male-cartoon-silhouette-with-headphones_27381">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-maracas3"></div>
+		<div class="class-name">.flaticon-maracas3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/maracas-pair-with-white-curve-design_27316">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone36"></div>
+		<div class="class-name">.flaticon-microphone36</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-black-silhouette-variant_26848">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone37"></div>
+		<div class="class-name">.flaticon-microphone37</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-for-a-singer-or-a-conference_26899">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone38"></div>
+		<div class="class-name">.flaticon-microphone38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-for-a-singer-or-a-conferencist_26916">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone39"></div>
+		<div class="class-name">.flaticon-microphone39</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-for-voice-amplification-outline_26932">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone40"></div>
+		<div class="class-name">.flaticon-microphone40</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-variant-silhouette_27123">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-microphone41"></div>
+		<div class="class-name">.flaticon-microphone41</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/microphone-with-hook_27363">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-midi"></div>
+		<div class="class-name">.flaticon-midi</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/midi-plug-connector-for-musical-electronic-instruments_26968">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mini13"></div>
+		<div class="class-name">.flaticon-mini13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mini-storage-card_27460">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mp33"></div>
+		<div class="class-name">.flaticon-mp33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mp3-audio-file_27188">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music115"></div>
+		<div class="class-name">.flaticon-music115</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-guitar-black-silhouette_26814">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music116"></div>
+		<div class="class-name">.flaticon-music116</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-disc_26826">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music117"></div>
+		<div class="class-name">.flaticon-music117</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-player-button_26839">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music118"></div>
+		<div class="class-name">.flaticon-music118</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-folder-for-selective-collection-organization_26845">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music119"></div>
+		<div class="class-name">.flaticon-music119</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-symbol-with-stop-button_26853">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music120"></div>
+		<div class="class-name">.flaticon-music120</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-midi-plug_26866">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music121"></div>
+		<div class="class-name">.flaticon-music121</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-amplifier_26869">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music122"></div>
+		<div class="class-name">.flaticon-music122</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-over-a-half-black-car_26874">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music123"></div>
+		<div class="class-name">.flaticon-music123</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-folder-to-listen-with-auriculars_26888">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music124"></div>
+		<div class="class-name">.flaticon-music124</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-pause-button-pair-of-lines_26920">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music125"></div>
+		<div class="class-name">.flaticon-music125</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-vintage-discs-player_26925">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music126"></div>
+		<div class="class-name">.flaticon-music126</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-harp_26929">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music127"></div>
+		<div class="class-name">.flaticon-music127</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-on-a-musical-pentagram-lines_26939">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music128"></div>
+		<div class="class-name">.flaticon-music128</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-pack-folder_26966">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music129"></div>
+		<div class="class-name">.flaticon-music129</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-disc-white-circle_26976">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music130"></div>
+		<div class="class-name">.flaticon-music130</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-player-pause-button_26992">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music131"></div>
+		<div class="class-name">.flaticon-music131</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-in-a-circle_27002">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music132"></div>
+		<div class="class-name">.flaticon-music132</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-folder_27006">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music133"></div>
+		<div class="class-name">.flaticon-music133</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-guitar-shape_27007">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music134"></div>
+		<div class="class-name">.flaticon-music134</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-cd_27016">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music135"></div>
+		<div class="class-name">.flaticon-music135</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-amplifier_27021">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music136"></div>
+		<div class="class-name">.flaticon-music136</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-woofer-square-box_27035">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music137"></div>
+		<div class="class-name">.flaticon-music137</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-long-play_27039">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music138"></div>
+		<div class="class-name">.flaticon-music138</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-speaker-with-sound_27049">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music139"></div>
+		<div class="class-name">.flaticon-music139</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-cd-black-circular-shape_27050">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music140"></div>
+		<div class="class-name">.flaticon-music140</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-storage_27052">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music141"></div>
+		<div class="class-name">.flaticon-music141</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-piano-keys_27056">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music142"></div>
+		<div class="class-name">.flaticon-music142</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-sound-wave-line_27064">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music143"></div>
+		<div class="class-name">.flaticon-music143</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-sound_27065">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music144"></div>
+		<div class="class-name">.flaticon-music144</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-inside-a-heart_27069">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music145"></div>
+		<div class="class-name">.flaticon-music145</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-speaker-tool_27072">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music146"></div>
+		<div class="class-name">.flaticon-music146</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-player-two-layers_27076">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music147"></div>
+		<div class="class-name">.flaticon-music147</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-speaker-with-cords_27109">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music148"></div>
+		<div class="class-name">.flaticon-music148</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-connector_27110">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music149"></div>
+		<div class="class-name">.flaticon-music149</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-table-with-discs_27115">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music150"></div>
+		<div class="class-name">.flaticon-music150</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-disco-ball_27121">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music151"></div>
+		<div class="class-name">.flaticon-music151</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-downloads-folder_27177">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music152"></div>
+		<div class="class-name">.flaticon-music152</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-jack-connecting-cord_27178">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music153"></div>
+		<div class="class-name">.flaticon-music153</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-player-with-earphones_27191">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music154"></div>
+		<div class="class-name">.flaticon-music154</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-note-on-folder_27195">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music155"></div>
+		<div class="class-name">.flaticon-music155</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-control-device_27207">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music156"></div>
+		<div class="class-name">.flaticon-music156</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-device-connector_27259">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music157"></div>
+		<div class="class-name">.flaticon-music157</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-folder-variant_27268">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music158"></div>
+		<div class="class-name">.flaticon-music158</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-speaker-and-musical-note_27272">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music159"></div>
+		<div class="class-name">.flaticon-music159</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-disc-with-white-curve-details_27298">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music160"></div>
+		<div class="class-name">.flaticon-music160</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-sound-bars_27354">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music161"></div>
+		<div class="class-name">.flaticon-music161</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-connector-jacks-with-cords_27361">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music162"></div>
+		<div class="class-name">.flaticon-music162</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-device-connector-cords_27388">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical43"></div>
+		<div class="class-name">.flaticon-musical43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-note-black-variant-shape_26828">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical44"></div>
+		<div class="class-name">.flaticon-musical44</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-score-stand_26835">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical45"></div>
+		<div class="class-name">.flaticon-musical45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-note-in-black_26876">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical46"></div>
+		<div class="class-name">.flaticon-musical46</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-harp_26880">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical47"></div>
+		<div class="class-name">.flaticon-musical47</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-pentagram-lines-with-music-notes_26902">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical48"></div>
+		<div class="class-name">.flaticon-musical48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-symbol_26906">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical49"></div>
+		<div class="class-name">.flaticon-musical49</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-sign-of-two-dots_26938">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical50"></div>
+		<div class="class-name">.flaticon-musical50</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-object-pair-from-two-different-views-from-front-and-side_26963">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical51"></div>
+		<div class="class-name">.flaticon-musical51</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-disc-and-dj-hand_27011">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical52"></div>
+		<div class="class-name">.flaticon-musical52</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-folder_27018">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical53"></div>
+		<div class="class-name">.flaticon-musical53</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-note-with-three-lines_27097">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical54"></div>
+		<div class="class-name">.flaticon-musical54</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-note-cartoon-variant_27301">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musical55"></div>
+		<div class="class-name">.flaticon-musical55</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musical-disc-on-folder_27329">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-musician2"></div>
+		<div class="class-name">.flaticon-musician2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/musician-with-accordion_27019">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mute10"></div>
+		<div class="class-name">.flaticon-mute10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mute-volume-control_27150">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-old31"></div>
+		<div class="class-name">.flaticon-old31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/old-style-compact-disc-player_27210">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-old32"></div>
+		<div class="class-name">.flaticon-old32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/old-type-musical-disc-player_27245">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pause16"></div>
+		<div class="class-name">.flaticon-pause16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pause-play-button_27185">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pause17"></div>
+		<div class="class-name">.flaticon-pause17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pause-button-made-up-of-two-vertical-lines_27340">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-phone55"></div>
+		<div class="class-name">.flaticon-phone55</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/phone-sim-card_27228">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-piano10"></div>
+		<div class="class-name">.flaticon-piano10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/piano-keys-in-curve_26957">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-piano11"></div>
+		<div class="class-name">.flaticon-piano11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/piano-keys-part_27194">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-play47"></div>
+		<div class="class-name">.flaticon-play47</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/play-music-player-button_26884">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-play48"></div>
+		<div class="class-name">.flaticon-play48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/play-button-arrowhead_27223">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-player"></div>
+		<div class="class-name">.flaticon-player</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/player-fast-forward-button_27009">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-professional4"></div>
+		<div class="class-name">.flaticon-professional4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/professional-condenser-microphone-outline_27332">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-quavers"></div>
+		<div class="class-name">.flaticon-quavers</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/quavers-pair_27144">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-radio25"></div>
+		<div class="class-name">.flaticon-radio25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/radio_26903">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-radio26"></div>
+		<div class="class-name">.flaticon-radio26</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/radio-am-and-fm-tuner_27292">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rattles"></div>
+		<div class="class-name">.flaticon-rattles</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rattles_26904">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rectangular29"></div>
+		<div class="class-name">.flaticon-rectangular29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rectangular-speakers-with-bass_27134">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rectangular31"></div>
+		<div class="class-name">.flaticon-rectangular31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rectangular-headphones-silhouette_27163">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rectangular33"></div>
+		<div class="class-name">.flaticon-rectangular33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rectangular-mp3-music-player_27263">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rock4"></div>
+		<div class="class-name">.flaticon-rock4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rock-on-hand-gesture-outline_27255">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rounded32"></div>
+		<div class="class-name">.flaticon-rounded32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rounded-headphones_27112">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rounded33"></div>
+		<div class="class-name">.flaticon-rounded33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rounded-radio-box_27169">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-saxophone6"></div>
+		<div class="class-name">.flaticon-saxophone6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/saxophone-variant_27108">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-saxophone7"></div>
+		<div class="class-name">.flaticon-saxophone7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/saxophone-variant-silhouette_27251">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-scratching"></div>
+		<div class="class-name">.flaticon-scratching</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/scratching-a-music-disc_27308">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-small151"></div>
+		<div class="class-name">.flaticon-small151</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/small-maracas-with-white-line-design_27387">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-snare2"></div>
+		<div class="class-name">.flaticon-snare2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/snare-drum-with-white-lines_27285">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sound18"></div>
+		<div class="class-name">.flaticon-sound18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sound-bars-formed-by-small-circles_27200">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sound19"></div>
+		<div class="class-name">.flaticon-sound19</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sound-system_27374">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker44"></div>
+		<div class="class-name">.flaticon-speaker44</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker-with-sound_27053">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker45"></div>
+		<div class="class-name">.flaticon-speaker45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker-silhouette_27235">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-spike"></div>
+		<div class="class-name">.flaticon-spike</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/spike-design-guitar_27118">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-square66"></div>
+		<div class="class-name">.flaticon-square66</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/square-bass-speakers_27320">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-squares1"></div>
+		<div class="class-name">.flaticon-squares1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/squares-with-rounded-edges_27378">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-star67"></div>
+		<div class="class-name">.flaticon-star67</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/star-shaped-guitar_27390">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-star68"></div>
+		<div class="class-name">.flaticon-star68</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/star-shaped-brush_27393">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-storage14"></div>
+		<div class="class-name">.flaticon-storage14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/storage-device-card_27209">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sync"></div>
+		<div class="class-name">.flaticon-sync</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sync-folder_27295">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-synthesizer1"></div>
+		<div class="class-name">.flaticon-synthesizer1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/synthesizer_27010">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tambourine4"></div>
+		<div class="class-name">.flaticon-tambourine4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tambourine-side-view_26972">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-teenager"></div>
+		<div class="class-name">.flaticon-teenager</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/teenager-listening-music-with-headphones_26997">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-telephone69"></div>
+		<div class="class-name">.flaticon-telephone69</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/telephone-call-symbol-on-a-rectangular-background_27293">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-thick14"></div>
+		<div class="class-name">.flaticon-thick14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/thick-double-note_27124">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-thirty"></div>
+		<div class="class-name">.flaticon-thirty</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/thirty-second-musical-note_27104">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-treble3"></div>
+		<div class="class-name">.flaticon-treble3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/treble-clef_27237">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-triangle18"></div>
+		<div class="class-name">.flaticon-triangle18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/triangle-on-a-line_27057">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-trumpet10"></div>
+		<div class="class-name">.flaticon-trumpet10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/trumpet_27030">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tuning"></div>
+		<div class="class-name">.flaticon-tuning</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tuning-fork-shaped_27129">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-ukelele"></div>
+		<div class="class-name">.flaticon-ukelele</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/ukelele-variant-with-three-strings_27368">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage34"></div>
+		<div class="class-name">.flaticon-vintage34</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-discs-player-or-long-player_26971">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage35"></div>
+		<div class="class-name">.flaticon-vintage35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-music-disc-on-player_27060">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage36"></div>
+		<div class="class-name">.flaticon-vintage36</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-music-disc-player_27215">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage37"></div>
+		<div class="class-name">.flaticon-vintage37</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-style-compact-disc-music-player_27346">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage38"></div>
+		<div class="class-name">.flaticon-vintage38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-radio-with-antenna-and-tuner_27350">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-vintage39"></div>
+		<div class="class-name">.flaticon-vintage39</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/vintage-radio-with-antenna_27372">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-violin6"></div>
+		<div class="class-name">.flaticon-violin6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/violin-with-bow_27103">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-volume34"></div>
+		<div class="class-name">.flaticon-volume34</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/volume-adjustment-symbol_27075">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-volume35"></div>
+		<div class="class-name">.flaticon-volume35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/volume-control-button_27389">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wind16"></div>
+		<div class="class-name">.flaticon-wind16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wind-instrument-variant_27317">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-xylophone5"></div>
+		<div class="class-name">.flaticon-xylophone5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/xylophone-on-a-table-with-sticks_27360">Freepik</a></div></div></section>
+
+<section class="attribution">
+
+	<div class="usetitle">License and attribution:</div><div class="attrDiv">Font generated by <a href="http://www.flaticon.com">flaticon.com</a>
+ under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>. The authors are: <a href="http://www.freepik.com">Freepik</a>.</div><div class="usetitle">Copy the Attribution License:</div>
+
+<textarea onclick="this.focus();this.select();">Font generated by &lt;a href=&quot;http://www.flaticon.com&quot;&gt;flaticon.com&lt;/a&gt;
+ under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;CC BY&lt;/a&gt;. The authors are: &lt;a href=&quot;http://www.freepik.com&quot;&gt;Freepik&lt;/a&gt;.</textarea>
+
+</section>
+
+<section class="iconsuse">
+    	<div class="usetitle">Examples:</div>
+		<div class="image"><p>&lt;i class=&quot;flaticon-abstract4&quot;&gt;&lt;/i&gt; <i class="flaticon-abstract4"></i></p><p>&lt;i class=&quot;flaticon-accordion2&quot;&gt;&lt;/i&gt; <i class="flaticon-accordion2"></i></p><p>&lt;i class=&quot;flaticon-accordion3&quot;&gt;&lt;/i&gt; <i class="flaticon-accordion3"></i></p><p>&lt;i class=&quot;flaticon-acoustic1&quot;&gt;&lt;/i&gt; <i class="flaticon-acoustic1"></i></p><p>&lt;i class=&quot;flaticon-acoustic&quot;&gt;&lt;/i&gt; <i class="flaticon-acoustic"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-aerial2&quot;&gt;&lt;/span&gt; <span class="flaticon-aerial2"></span></p><p>&lt;span class=&quot;flaticon-african1&quot;&gt;&lt;/span&gt; <span class="flaticon-african1"></span></p><p>&lt;span class=&quot;flaticon-african2&quot;&gt;&lt;/span&gt; <span class="flaticon-african2"></span></p><p>&lt;span class=&quot;flaticon-african&quot;&gt;&lt;/span&gt; <span class="flaticon-african"></span></p><p>&lt;span class=&quot;flaticon-apple23&quot;&gt;&lt;/span&gt; <span class="flaticon-apple23"></span></p></div><div class="image"><p>&lt;span class=&quot;flaticon-apple24&quot;&gt;&lt;/span&gt; <span class="flaticon-apple24"></span></p><p>&lt;i class=&quot;flaticon-audio30&quot;&gt;&lt;/i&gt; <i class="flaticon-audio30"></i></p><p>&lt;i class=&quot;flaticon-audio31&quot;&gt;&lt;/i&gt; <i class="flaticon-audio31"></i></p><p>&lt;i class=&quot;flaticon-audio32&quot;&gt;&lt;/i&gt; <i class="flaticon-audio32"></i></p><p>&lt;i class=&quot;flaticon-audio33&quot;&gt;&lt;/i&gt; <i class="flaticon-audio33"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-bar11&quot;&gt;&lt;/span&gt; <span class="flaticon-bar11"></span></p><p>&lt;span class=&quot;flaticon-bass3&quot;&gt;&lt;/span&gt; <span class="flaticon-bass3"></span></p><p>&lt;span class=&quot;flaticon-boombox1&quot;&gt;&lt;/span&gt; <span class="flaticon-boombox1"></span></p><p>&lt;span class=&quot;flaticon-broadcasting1&quot;&gt;&lt;/span&gt; <span class="flaticon-broadcasting1"></span></p><p>&lt;span class=&quot;flaticon-butterfly7&quot;&gt;&lt;/span&gt; <span class="flaticon-butterfly7"></span></p></div><div class="image"></div>
+</section>
+<div id="footer">
+    <div>Generated by <a href="http://www.flaticon.com">flaticon.com</a>
+    </div>
+</div>
+	</body>
+</html>

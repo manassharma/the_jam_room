@@ -1,0 +1,721 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}.flaticon-abstract4:before {
+	content: "\e000";
+}
+.flaticon-accordion2:before {
+	content: "\e001";
+}
+.flaticon-accordion3:before {
+	content: "\e002";
+}
+.flaticon-acoustic1:before {
+	content: "\e003";
+}
+.flaticon-acoustic:before {
+	content: "\e004";
+}
+.flaticon-aerial2:before {
+	content: "\e005";
+}
+.flaticon-african1:before {
+	content: "\e006";
+}
+.flaticon-african2:before {
+	content: "\e007";
+}
+.flaticon-african:before {
+	content: "\e008";
+}
+.flaticon-apple23:before {
+	content: "\e009";
+}
+.flaticon-apple24:before {
+	content: "\e00a";
+}
+.flaticon-audio30:before {
+	content: "\e00b";
+}
+.flaticon-audio31:before {
+	content: "\e00c";
+}
+.flaticon-audio32:before {
+	content: "\e00d";
+}
+.flaticon-audio33:before {
+	content: "\e00e";
+}
+.flaticon-bar11:before {
+	content: "\e00f";
+}
+.flaticon-bass3:before {
+	content: "\e010";
+}
+.flaticon-boombox1:before {
+	content: "\e011";
+}
+.flaticon-broadcasting1:before {
+	content: "\e012";
+}
+.flaticon-butterfly7:before {
+	content: "\e013";
+}
+.flaticon-cartoon4:before {
+	content: "\e014";
+}
+.flaticon-cassette13:before {
+	content: "\e015";
+}
+.flaticon-cassette14:before {
+	content: "\e016";
+}
+.flaticon-circle38:before {
+	content: "\e017";
+}
+.flaticon-circular63:before {
+	content: "\e018";
+}
+.flaticon-circular64:before {
+	content: "\e019";
+}
+.flaticon-circular65:before {
+	content: "\e01a";
+}
+.flaticon-classic7:before {
+	content: "\e01b";
+}
+.flaticon-compact9:before {
+	content: "\e01c";
+}
+.flaticon-computer77:before {
+	content: "\e01d";
+}
+.flaticon-computer78:before {
+	content: "\e01e";
+}
+.flaticon-connected11:before {
+	content: "\e01f";
+}
+.flaticon-cord3:before {
+	content: "\e020";
+}
+.flaticon-disc3:before {
+	content: "\e021";
+}
+.flaticon-disc4:before {
+	content: "\e022";
+}
+.flaticon-disc5:before {
+	content: "\e023";
+}
+.flaticon-disc6:before {
+	content: "\e024";
+}
+.flaticon-disc7:before {
+	content: "\e025";
+}
+.flaticon-disc8:before {
+	content: "\e026";
+}
+.flaticon-download64:before {
+	content: "\e027";
+}
+.flaticon-download65:before {
+	content: "\e028";
+}
+.flaticon-drum12:before {
+	content: "\e029";
+}
+.flaticon-drum13:before {
+	content: "\e02a";
+}
+.flaticon-drum14:before {
+	content: "\e02b";
+}
+.flaticon-drum15:before {
+	content: "\e02c";
+}
+.flaticon-drum16:before {
+	content: "\e02d";
+}
+.flaticon-drum17:before {
+	content: "\e02e";
+}
+.flaticon-drum18:before {
+	content: "\e02f";
+}
+.flaticon-drums2:before {
+	content: "\e030";
+}
+.flaticon-earphones2:before {
+	content: "\e031";
+}
+.flaticon-eighth1:before {
+	content: "\e032";
+}
+.flaticon-eighth:before {
+	content: "\e033";
+}
+.flaticon-electric26:before {
+	content: "\e034";
+}
+.flaticon-electric27:before {
+	content: "\e035";
+}
+.flaticon-electric28:before {
+	content: "\e036";
+}
+.flaticon-electric29:before {
+	content: "\e037";
+}
+.flaticon-electric30:before {
+	content: "\e038";
+}
+.flaticon-electric31:before {
+	content: "\e039";
+}
+.flaticon-electric32:before {
+	content: "\e03a";
+}
+.flaticon-electric33:before {
+	content: "\e03b";
+}
+.flaticon-electric34:before {
+	content: "\e03c";
+}
+.flaticon-electric35:before {
+	content: "\e03d";
+}
+.flaticon-fast17:before {
+	content: "\e03e";
+}
+.flaticon-fast18:before {
+	content: "\e03f";
+}
+.flaticon-flute3:before {
+	content: "\e040";
+}
+.flaticon-flute4:before {
+	content: "\e041";
+}
+.flaticon-flute5:before {
+	content: "\e042";
+}
+.flaticon-folder67:before {
+	content: "\e043";
+}
+.flaticon-folder68:before {
+	content: "\e044";
+}
+.flaticon-grand1:before {
+	content: "\e045";
+}
+.flaticon-grid7:before {
+	content: "\e046";
+}
+.flaticon-guitar20:before {
+	content: "\e047";
+}
+.flaticon-guitar21:before {
+	content: "\e048";
+}
+.flaticon-guitar22:before {
+	content: "\e049";
+}
+.flaticon-guitar23:before {
+	content: "\e04a";
+}
+.flaticon-guitar24:before {
+	content: "\e04b";
+}
+.flaticon-guitar25:before {
+	content: "\e04c";
+}
+.flaticon-guitar26:before {
+	content: "\e04d";
+}
+.flaticon-guitar27:before {
+	content: "\e04e";
+}
+.flaticon-guitar28:before {
+	content: "\e04f";
+}
+.flaticon-hand45:before {
+	content: "\e050";
+}
+.flaticon-happy11:before {
+	content: "\e051";
+}
+.flaticon-harmonic:before {
+	content: "\e052";
+}
+.flaticon-hat5:before {
+	content: "\e053";
+}
+.flaticon-hdmi:before {
+	content: "\e054";
+}
+.flaticon-head14:before {
+	content: "\e055";
+}
+.flaticon-headphone4:before {
+	content: "\e056";
+}
+.flaticon-headphone5:before {
+	content: "\e057";
+}
+.flaticon-headphones12:before {
+	content: "\e058";
+}
+.flaticon-headphones13:before {
+	content: "\e059";
+}
+.flaticon-heavy2:before {
+	content: "\e05a";
+}
+.flaticon-horn1:before {
+	content: "\e05b";
+}
+.flaticon-inear:before {
+	content: "\e05c";
+}
+.flaticon-insect2:before {
+	content: "\e05d";
+}
+.flaticon-iphone5:before {
+	content: "\e05e";
+}
+.flaticon-iphone6:before {
+	content: "\e05f";
+}
+.flaticon-ipod10:before {
+	content: "\e060";
+}
+.flaticon-ipod8:before {
+	content: "\e061";
+}
+.flaticon-ipod9:before {
+	content: "\e062";
+}
+.flaticon-jbl:before {
+	content: "\e063";
+}
+.flaticon-love12:before {
+	content: "\e064";
+}
+.flaticon-male101:before {
+	content: "\e065";
+}
+.flaticon-male102:before {
+	content: "\e066";
+}
+.flaticon-maracas3:before {
+	content: "\e067";
+}
+.flaticon-microphone36:before {
+	content: "\e068";
+}
+.flaticon-microphone37:before {
+	content: "\e069";
+}
+.flaticon-microphone38:before {
+	content: "\e06a";
+}
+.flaticon-microphone39:before {
+	content: "\e06b";
+}
+.flaticon-microphone40:before {
+	content: "\e06c";
+}
+.flaticon-microphone41:before {
+	content: "\e06d";
+}
+.flaticon-midi:before {
+	content: "\e06e";
+}
+.flaticon-mini13:before {
+	content: "\e06f";
+}
+.flaticon-mp33:before {
+	content: "\e070";
+}
+.flaticon-music115:before {
+	content: "\e071";
+}
+.flaticon-music116:before {
+	content: "\e072";
+}
+.flaticon-music117:before {
+	content: "\e073";
+}
+.flaticon-music118:before {
+	content: "\e074";
+}
+.flaticon-music119:before {
+	content: "\e075";
+}
+.flaticon-music120:before {
+	content: "\e076";
+}
+.flaticon-music121:before {
+	content: "\e077";
+}
+.flaticon-music122:before {
+	content: "\e078";
+}
+.flaticon-music123:before {
+	content: "\e079";
+}
+.flaticon-music124:before {
+	content: "\e07a";
+}
+.flaticon-music125:before {
+	content: "\e07b";
+}
+.flaticon-music126:before {
+	content: "\e07c";
+}
+.flaticon-music127:before {
+	content: "\e07d";
+}
+.flaticon-music128:before {
+	content: "\e07e";
+}
+.flaticon-music129:before {
+	content: "\e07f";
+}
+.flaticon-music130:before {
+	content: "\e080";
+}
+.flaticon-music131:before {
+	content: "\e081";
+}
+.flaticon-music132:before {
+	content: "\e082";
+}
+.flaticon-music133:before {
+	content: "\e083";
+}
+.flaticon-music134:before {
+	content: "\e084";
+}
+.flaticon-music135:before {
+	content: "\e085";
+}
+.flaticon-music136:before {
+	content: "\e086";
+}
+.flaticon-music137:before {
+	content: "\e087";
+}
+.flaticon-music138:before {
+	content: "\e088";
+}
+.flaticon-music139:before {
+	content: "\e089";
+}
+.flaticon-music140:before {
+	content: "\e08a";
+}
+.flaticon-music141:before {
+	content: "\e08b";
+}
+.flaticon-music142:before {
+	content: "\e08c";
+}
+.flaticon-music143:before {
+	content: "\e08d";
+}
+.flaticon-music144:before {
+	content: "\e08e";
+}
+.flaticon-music145:before {
+	content: "\e08f";
+}
+.flaticon-music146:before {
+	content: "\e090";
+}
+.flaticon-music147:before {
+	content: "\e091";
+}
+.flaticon-music148:before {
+	content: "\e092";
+}
+.flaticon-music149:before {
+	content: "\e093";
+}
+.flaticon-music150:before {
+	content: "\e094";
+}
+.flaticon-music151:before {
+	content: "\e095";
+}
+.flaticon-music152:before {
+	content: "\e096";
+}
+.flaticon-music153:before {
+	content: "\e097";
+}
+.flaticon-music154:before {
+	content: "\e098";
+}
+.flaticon-music155:before {
+	content: "\e099";
+}
+.flaticon-music156:before {
+	content: "\e09a";
+}
+.flaticon-music157:before {
+	content: "\e09b";
+}
+.flaticon-music158:before {
+	content: "\e09c";
+}
+.flaticon-music159:before {
+	content: "\e09d";
+}
+.flaticon-music160:before {
+	content: "\e09e";
+}
+.flaticon-music161:before {
+	content: "\e09f";
+}
+.flaticon-music162:before {
+	content: "\e0a0";
+}
+.flaticon-musical43:before {
+	content: "\e0a1";
+}
+.flaticon-musical44:before {
+	content: "\e0a2";
+}
+.flaticon-musical45:before {
+	content: "\e0a3";
+}
+.flaticon-musical46:before {
+	content: "\e0a4";
+}
+.flaticon-musical47:before {
+	content: "\e0a5";
+}
+.flaticon-musical48:before {
+	content: "\e0a6";
+}
+.flaticon-musical49:before {
+	content: "\e0a7";
+}
+.flaticon-musical50:before {
+	content: "\e0a8";
+}
+.flaticon-musical51:before {
+	content: "\e0a9";
+}
+.flaticon-musical52:before {
+	content: "\e0aa";
+}
+.flaticon-musical53:before {
+	content: "\e0ab";
+}
+.flaticon-musical54:before {
+	content: "\e0ac";
+}
+.flaticon-musical55:before {
+	content: "\e0ad";
+}
+.flaticon-musician2:before {
+	content: "\e0ae";
+}
+.flaticon-mute10:before {
+	content: "\e0af";
+}
+.flaticon-old31:before {
+	content: "\e0b0";
+}
+.flaticon-old32:before {
+	content: "\e0b1";
+}
+.flaticon-pause16:before {
+	content: "\e0b2";
+}
+.flaticon-pause17:before {
+	content: "\e0b3";
+}
+.flaticon-phone55:before {
+	content: "\e0b4";
+}
+.flaticon-piano10:before {
+	content: "\e0b5";
+}
+.flaticon-piano11:before {
+	content: "\e0b6";
+}
+.flaticon-play47:before {
+	content: "\e0b7";
+}
+.flaticon-play48:before {
+	content: "\e0b8";
+}
+.flaticon-player:before {
+	content: "\e0b9";
+}
+.flaticon-professional4:before {
+	content: "\e0ba";
+}
+.flaticon-quavers:before {
+	content: "\e0bb";
+}
+.flaticon-radio25:before {
+	content: "\e0bc";
+}
+.flaticon-radio26:before {
+	content: "\e0bd";
+}
+.flaticon-rattles:before {
+	content: "\e0be";
+}
+.flaticon-rectangular29:before {
+	content: "\e0bf";
+}
+.flaticon-rectangular31:before {
+	content: "\e0c0";
+}
+.flaticon-rectangular33:before {
+	content: "\e0c1";
+}
+.flaticon-rock4:before {
+	content: "\e0c2";
+}
+.flaticon-rounded32:before {
+	content: "\e0c3";
+}
+.flaticon-rounded33:before {
+	content: "\e0c4";
+}
+.flaticon-saxophone6:before {
+	content: "\e0c5";
+}
+.flaticon-saxophone7:before {
+	content: "\e0c6";
+}
+.flaticon-scratching:before {
+	content: "\e0c7";
+}
+.flaticon-small151:before {
+	content: "\e0c8";
+}
+.flaticon-snare2:before {
+	content: "\e0c9";
+}
+.flaticon-sound18:before {
+	content: "\e0ca";
+}
+.flaticon-sound19:before {
+	content: "\e0cb";
+}
+.flaticon-speaker44:before {
+	content: "\e0cc";
+}
+.flaticon-speaker45:before {
+	content: "\e0cd";
+}
+.flaticon-spike:before {
+	content: "\e0ce";
+}
+.flaticon-square66:before {
+	content: "\e0cf";
+}
+.flaticon-squares1:before {
+	content: "\e0d0";
+}
+.flaticon-star67:before {
+	content: "\e0d1";
+}
+.flaticon-star68:before {
+	content: "\e0d2";
+}
+.flaticon-storage14:before {
+	content: "\e0d3";
+}
+.flaticon-sync:before {
+	content: "\e0d4";
+}
+.flaticon-synthesizer1:before {
+	content: "\e0d5";
+}
+.flaticon-tambourine4:before {
+	content: "\e0d6";
+}
+.flaticon-teenager:before {
+	content: "\e0d7";
+}
+.flaticon-telephone69:before {
+	content: "\e0d8";
+}
+.flaticon-thick14:before {
+	content: "\e0d9";
+}
+.flaticon-thirty:before {
+	content: "\e0da";
+}
+.flaticon-treble3:before {
+	content: "\e0db";
+}
+.flaticon-triangle18:before {
+	content: "\e0dc";
+}
+.flaticon-trumpet10:before {
+	content: "\e0dd";
+}
+.flaticon-tuning:before {
+	content: "\e0de";
+}
+.flaticon-ukelele:before {
+	content: "\e0df";
+}
+.flaticon-vintage34:before {
+	content: "\e0e0";
+}
+.flaticon-vintage35:before {
+	content: "\e0e1";
+}
+.flaticon-vintage36:before {
+	content: "\e0e2";
+}
+.flaticon-vintage37:before {
+	content: "\e0e3";
+}
+.flaticon-vintage38:before {
+	content: "\e0e4";
+}
+.flaticon-vintage39:before {
+	content: "\e0e5";
+}
+.flaticon-violin6:before {
+	content: "\e0e6";
+}
+.flaticon-volume34:before {
+	content: "\e0e7";
+}
+.flaticon-volume35:before {
+	content: "\e0e8";
+}
+.flaticon-wind16:before {
+	content: "\e0e9";
+}
+.flaticon-xylophone5:before {
+	content: "\e0ea";
+}

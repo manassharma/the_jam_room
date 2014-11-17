@@ -23,7 +23,7 @@
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:background="@drawable/jam"
+        android:background="@drawable/background2"
         android:id="@+id/jam">
 
         <LinearLayout android:id="@+id/fullscreen_content_controls"
