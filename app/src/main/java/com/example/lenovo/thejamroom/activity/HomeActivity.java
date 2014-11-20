@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -26,7 +27,9 @@ import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
 import com.example.lenovo.thejamroom.adapter.SongsListAdapter;
 import com.example.lenovo.thejamroom.async.CallAPI;
+import com.example.lenovo.thejamroom.fragment.NavigationDrawerFragment;
 import com.example.lenovo.thejamroom.pojo.Song;
+import com.facebook.Session;
 
 public class HomeActivity extends FragmentActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -60,6 +63,7 @@ public class HomeActivity extends FragmentActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
 
 
         getActionBar().setDisplayShowTitleEnabled(false);
@@ -122,6 +126,8 @@ public class HomeActivity extends FragmentActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            callFacebookLogout(getApplicationContext());
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -137,11 +143,34 @@ public class HomeActivity extends FragmentActivity
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             this.finish();
         } else {
             getFragmentManager().popBackStack();
+            this.finish();
         }
+    }
+
+
+    public static void callFacebookLogout(Context context) {
+        Session session = Session.getActiveSession();
+        if (session != null) {
+
+            if (!session.isClosed()) {
+                session.closeAndClearTokenInformation();
+                //clear your preferences if saved
+            }
+        } else {
+
+            session = new Session(context);
+            Session.setActiveSession(session);
+
+            session.closeAndClearTokenInformation();
+            //clear your preferences if saved
+
+        }
+
     }
 
     /**

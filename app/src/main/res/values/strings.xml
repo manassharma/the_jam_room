@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">"The jam room "</string>
+    <string name="app_name">"The Jam Room "</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="action_settings">Settings</string>
@@ -17,5 +17,10 @@
     <string name="action_example">Example action</string>
     <string name="title_activity_music_player">MusicPlayerActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="get_started">Get Started</string>
+    <string name="settings">Settings123</string>
+    <string name="logout">Logout</string>
+    <string name="app_id">1505398873064213</string>
 
 </resources>

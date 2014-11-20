@@ -2,19 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lenovo.thejamroom" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/JamRoomTheme" >
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+
         <activity
-            android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/JamRoomTheme" >
-        </activity>
-        <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.example.lenovo.thejamroom.activity.SplashActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,13 +25,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:name="com.example.lenovo.thejamroom.activity.HomeActivity"
+            android:label="@string/app_name" >
         </activity>
-
+        <activity
+            android:name="com.example.lenovo.thejamroom.activity.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.lenovo.thejamroom.activity.UploadActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.facebook.LoginActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

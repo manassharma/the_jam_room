@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="test.jamroom.com.restjamroom.activity.HomeActivity" >
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+        android:background="@android:color/black"
+        android:title="@string/logout"
         android:orderInCategory="100"
         android:showAsAction="never" />
 </menu>

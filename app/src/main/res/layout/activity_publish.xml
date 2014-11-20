@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context="test.jamroom.com.restjamroom.activity.PublishActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSongName"
+            android:layout_gravity="center_horizontal"
+            android:hint="Song Title"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:hint="Artist"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtfileName"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:hint="FileName"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:showDividers="middle">
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Publish"
+        android:id="@+id/btnPublish"
+        android:textStyle="bold"
+        android:drawableTop="@drawable/publish"
+        android:textColor="@android:color/black"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinGenre"
+        android:gravity="center|center_horizontal"
+        android:spinnerMode="dropdown"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

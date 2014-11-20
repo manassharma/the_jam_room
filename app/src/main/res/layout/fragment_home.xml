@@ -13,9 +13,10 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:weightSum="1">
         <TextView
-            android:text="Top Songs"
+            android:text="Trending near you"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -24,12 +25,35 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="377dp"
             android:id="@+id/songsList"
             android:clickable="true"
             android:smoothScrollbar="true"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.61" />
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:id="@+id/imageView3"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.48"
+            android:src="@drawable/border" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createBtnPause"
+            android:drawableTop="@drawable/play"
+            android:background="@android:color/transparent"
+            android:text="Start Radio"
+            android:paddingLeft="7dp"
+            android:layout_gravity="center_horizontal" />
+</RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

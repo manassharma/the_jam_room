@@ -9,14 +9,13 @@
     <style name="JamRoomTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@null</item>
-        <item name="android:buttonBarButtonStyle">@style/ButtonBar</item>
+        <item name="android:actionBarStyle">@style/ButtonBar</item>
     </style>
 
-    <style name="ButtonBar" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="ButtonBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@android:color/black</item>
         <item name="android:icon">@drawable/icon</item>
     </style>
 
     <style name="ButtonBarButton" />
-
 </resources>
