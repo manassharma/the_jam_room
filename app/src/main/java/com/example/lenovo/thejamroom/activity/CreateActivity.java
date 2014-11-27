@@ -39,17 +39,6 @@ public class CreateActivity extends Fragment {
         super.onCreateView(inflater,container,savedInstanceState);
         final View view = inflater.inflate(R.layout.activity_create, container, false);
 
-            Button btnFile = (Button) view.findViewById(R.id.btnFile);
-            btnFile.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                    intent.setType("file/*");
-                    startActivityForResult(intent,PICKFILE_RESULT_CODE);
-                }
-            });
-
-
         uploadFile();
 
         return view;
