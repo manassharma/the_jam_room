@@ -1,30 +1,18 @@
 package com.example.lenovo.thejamroom.async;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.lenovo.thejamroom.Constants;
-
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.DataOutputStream;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
