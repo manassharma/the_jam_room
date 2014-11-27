@@ -6,7 +6,12 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -18,6 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +39,7 @@ import com.example.lenovo.thejamroom.pojo.Song;
 import com.facebook.Session;
 
 public class HomeActivity extends FragmentActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,LocationListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -47,13 +54,14 @@ public class HomeActivity extends FragmentActivity
     public static ArrayList<Song> songslist;
     public static int currentPosition;
 
+    LocationManager locationManager;
+    String provider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getActionBar().show();
         getActionBar().setDisplayShowTitleEnabled(false);
-
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -64,9 +72,62 @@ public class HomeActivity extends FragmentActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-
+        musicPlayerFragment = new MusicPlayerActivity();
 
         getActionBar().setDisplayShowTitleEnabled(false);
+
+
+        //Location Service
+        // Get the location manager
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // Define the criteria how to select the locatioin provider -> use
+        // default
+
+        Location location = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
+        if (location != null) {
+            System.out.println("Provider " + provider + " has been selected.");
+            onLocationChanged(location);
+        } else {
+            Toast.makeText(this, "Location Not available!!", Toast.LENGTH_SHORT);
+        }
+    }
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+        locationManager.removeUpdates(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 0, 0, this);
+    }
+
+    @Override
+    public void onLocationChanged(Location loc) {
+        double lat = loc.getLatitude();
+        double lng = loc.getLongitude();
+        String txt = lat +"  ,  " + lng;
+        System.out.println("LOCATION: "+ txt);
+
+    }
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(this, "Enabled new provider " + provider,
+                Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(this, "Disabled provider " + provider,
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -127,7 +188,8 @@ public class HomeActivity extends FragmentActivity
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             callFacebookLogout(getApplicationContext());
-            onBackPressed();
+            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -143,15 +205,17 @@ public class HomeActivity extends FragmentActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
         if (getFragmentManager().getBackStackEntryCount() == 0) {
-            this.finish();
+            System.out.println("in-if");
+            super.onBackPressed();
+            System.exit(0);
         } else {
+            System.out.println("in-else");
             getFragmentManager().popBackStack();
-            this.finish();
+
         }
     }
-
 
     public static void callFacebookLogout(Context context) {
         Session session = Session.getActiveSession();

@@ -27,27 +27,6 @@
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:textColor="@color/orange"
-        android:background="@drawable/rounded"
-        android:id="@+id/btnSignUp"
-        android:layout_gravity="center_horizontal"
-        android:padding="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="OR"
-        android:id="@+id/txtOR"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal" />
-
     <com.facebook.widget.LoginButton
         xmlns:fb="http://schemas.android.com/apk/res-auto"
         android:id="@+id/authButton"

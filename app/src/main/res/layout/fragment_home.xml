@@ -32,7 +32,14 @@
             android:layout_marginTop="5dp"
             android:layout_weight="0.61" />
 
-<RelativeLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtLocation" />
+
+        <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal">

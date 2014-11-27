@@ -3,6 +3,16 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
+    android {
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+        }
+        // ...
+    }
 
     defaultConfig {
         applicationId "com.example.lenovo.thejamroom"
@@ -24,4 +34,8 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile project(':facebook')
     compile 'com.android.support:support-v13:21.0.0'
+    compile files('/Users/avaneeshdesai/AndroidStudioProjects/the_jam_room/libs/httpclient-4.3.6.jar')
+    compile files('/Users/avaneeshdesai/AndroidStudioProjects/the_jam_room/libs/httpcore-4.3.3.jar')
+    compile files('/Users/avaneeshdesai/AndroidStudioProjects/the_jam_room/libs/httpmime-4.3.6.jar')
+    compile files('/Users/avaneeshdesai/AndroidStudioProjects/the_jam_room/libs/commons-io-2.4.jar')
 }

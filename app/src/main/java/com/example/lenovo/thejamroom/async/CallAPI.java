@@ -22,11 +22,12 @@ public class CallAPI extends AsyncTask <String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-      //  String urlString = params[0]; // URL to call
-      //  HttpClient httpclient = new DefaultHttpClient();
-      //  HttpResponse response;
-        String responseString = "[{\"songId\":2,\"name\":\"There She Goes\",\"artist\":\"Six Pence\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-19\",\"path\":\"/resources/test.mp3\"},{\"songId\":3,\"name\":\"Summer of 69\",\"artist\":\"Adam \",\"location\":\"US\",\"genere\":\"Rock\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"},{\"songId\":4,\"name\":\"Rude\",\"artist\":\"Magic\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"}]";
-     /*   try {
+        String urlString = params[0]; // URL to call
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpResponse response;
+        String responseString = "[]" ;
+       // //= "[{\"songId\":2,\"name\":\"There She Goes\",\"artist\":\"Six Pence\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-19\",\"path\":\"/resources/test.mp3\"},{\"songId\":3,\"name\":\"Summer of 69\",\"artist\":\"Adam \",\"location\":\"US\",\"genere\":\"Rock\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"},{\"songId\":4,\"name\":\"Rude\",\"artist\":\"Magic\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"}]";
+        try {
             response = httpclient.execute(new HttpGet(params[0]));
             Log.d("Response", Integer.toString(response.getStatusLine().getStatusCode()));
             StatusLine statusLine = response.getStatusLine();
@@ -46,7 +47,7 @@ public class CallAPI extends AsyncTask <String, Void, String> {
         } catch (Exception e) {
             //TODO Handle problems..
         }
-        */
+
         return responseString;
     }
 

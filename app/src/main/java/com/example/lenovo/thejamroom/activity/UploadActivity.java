@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,7 +15,9 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
+import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
+import com.example.lenovo.thejamroom.async.uploadFile;
 
 public class UploadActivity extends Activity {
     TabsAdapter mTabsAdapter;
@@ -42,6 +46,10 @@ public class UploadActivity extends Activity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

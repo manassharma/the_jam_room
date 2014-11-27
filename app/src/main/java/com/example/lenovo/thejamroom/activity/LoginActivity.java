@@ -67,7 +67,7 @@ public class LoginActivity extends FragmentActivity {
                 transaction.hide(fragments[i]);
         }
         if (addToBackStack){
-            transaction.addToBackStack(null);
+           // transaction.addToBackStack(null);
         }
         transaction.commit();
     }
