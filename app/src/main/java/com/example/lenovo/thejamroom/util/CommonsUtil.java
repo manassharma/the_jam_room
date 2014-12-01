@@ -4,9 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.lenovo.thejamroom.activity.MusicPlayerActivity;
 import com.example.lenovo.thejamroom.pojo.Song;
 import com.example.lenovo.thejamroom.service.MusicPlayerService;
 
@@ -54,7 +52,10 @@ public class CommonsUtil {
 
     public static void calculateLocation(){
         Location location = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
-        setCurrentLocation(location);
+        if(location!=null)
+            setCurrentLocation(location);
+        else
+            Log.d(TAG,"location is null");
     }
 
     public static void setCurrentLocation(Location location){
