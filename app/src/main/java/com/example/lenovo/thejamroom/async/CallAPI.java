@@ -31,7 +31,7 @@ public class CallAPI extends AsyncTask <String, Void, String> {
        // //= "[{\"songId\":2,\"name\":\"There She Goes\",\"artist\":\"Six Pence\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-19\",\"path\":\"/resources/test.mp3\"},{\"songId\":3,\"name\":\"Summer of 69\",\"artist\":\"Adam \",\"location\":\"US\",\"genere\":\"Rock\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"},{\"songId\":4,\"name\":\"Rude\",\"artist\":\"Magic\",\"location\":\"US\",\"genere\":\"Pop\",\"uploadedOn\":\"2014-10-15\",\"path\":\"/resources/test.mp3\"}]";
         try {
             HttpGet get = new HttpGet(params[0]);
-            get.setHeader("x-auth-token", UserSession.getAccessToken());
+            get.setHeader("x-auth-token", "pv1oc1gjslfn1lg52a5mb3f4tk" /*UserSession.getAccessToken()*/);
             response = httpclient.execute(get);
             Log.d("Response", Integer.toString(response.getStatusLine().getStatusCode()));
             StatusLine statusLine = response.getStatusLine();

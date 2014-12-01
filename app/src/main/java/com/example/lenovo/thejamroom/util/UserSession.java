@@ -56,13 +56,13 @@ public class UserSession {
 
     public static void setAccessToken(String accessToken1){
         SharedPreferences.Editor editor = context.getSharedPreferences("jamroom",context.MODE_PRIVATE).edit();
-        editor.putString("accessToken",accessToken1);
+        editor.putString("accessToken", "pv1oc1gjslfn1lg52a5mb3f4tk");
         editor.commit();
         accessToken = accessToken1;
     }
 
     public static String getAccessToken(){
-        return accessToken;
+        return "pv1oc1gjslfn1lg52a5mb3f4tk"; //accessToken;
     }
 
 

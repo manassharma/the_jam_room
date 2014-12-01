@@ -63,7 +63,7 @@ public class PlaceholderFragment extends Fragment {
         currentLocation = CommonsUtil.currentLocation;
         try {
             CallAPI api = new CallAPI();
-            String uri[] = {Constants.SERVER_URL + Constants.LOCATION_URL+ currentLocation };
+            String uri[] = {Constants.SERVER_URL + Constants.SONGS_URL  };
             api.execute(uri);
             result = api.get();
             arr = new JSONArray(result);

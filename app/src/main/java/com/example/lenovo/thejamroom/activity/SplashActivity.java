@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
 
         setContentView(R.layout.activity_splash);
         try {
-            PackageInfo info =     getPackageManager().getPackageInfo("com.package.mypackage",PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("com.package.mypackage",PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
@@ -57,9 +57,10 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+                //Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+                //startActivity(i);
+                Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                 startActivity(i);
-
                 // close this activity
                 finish();
             }
