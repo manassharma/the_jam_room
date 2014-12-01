@@ -1,6 +1,7 @@
 package com.example.lenovo.thejamroom.activity;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -11,12 +12,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
+import com.example.lenovo.thejamroom.async.uploadFile;
 
+import java.io.File;
 import java.io.IOException;
 
 public class CreateActivity extends Fragment {
+    public static final int PICKFILE_RESULT_CODE = 1;
+    boolean isPlaying = false;
 
     private static final String LOG_TAG = "AudioRecordTest";
     private static String mFileName = null;
@@ -24,26 +31,23 @@ public class CreateActivity extends Fragment {
     private MediaRecorder mRecorder = null;
 
     private MediaPlayer mPlayer = null;
-    boolean isRecording = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         super.onCreateView(inflater,container,savedInstanceState);
         final View view = inflater.inflate(R.layout.activity_create, container, false);
-
-        Button createBtnRecord = (Button)view.findViewById(R.id.createBtnRecord);
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/audiorecordtest.3gp";
+        ImageButton createBtnRecord = (ImageButton)view.findViewById(R.id.createBtnRecord);
         createBtnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRecording == false)
-                    isRecording = true;
-                else
-                    isRecording = false;
-                onRecord();
+                togglePlayPause();
             }
         });
         return view;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -61,10 +65,8 @@ public class CreateActivity extends Fragment {
 
 
 
-    private void onRecord() {
-        if (isRecording) {
-            mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-            mFileName += "/audiorecordtest.3gp";
+    private void onRecord(boolean start) {
+        if (start) {
             startRecording();
         } else {
             stopRecording();
@@ -109,7 +111,6 @@ public class CreateActivity extends Fragment {
         }
 
         mRecorder.start();
-
     }
 
     private void stopRecording() {
@@ -117,4 +118,20 @@ public class CreateActivity extends Fragment {
         mRecorder.release();
         mRecorder = null;
     }
+
+    public void togglePlayPause(){
+        if(!isPlaying){
+            startRecording();
+            isPlaying = true;
+            ((ImageButton)getActivity().findViewById(R.id.createBtnRecord)).setImageDrawable(getResources().getDrawable(R.drawable.stp));
+        }
+        else{
+            stopRecording();
+            isPlaying = false;
+            ((ImageButton)getActivity().findViewById(R.id.createBtnRecord)).setImageDrawable(getResources().getDrawable(R.drawable.rec));
+        }
+    }
+
+
+
 }

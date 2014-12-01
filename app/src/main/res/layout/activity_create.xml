@@ -27,29 +27,18 @@
             android:drawableTop="@drawable/pause"
             android:background="@android:color/transparent"
             android:text="Pause"
-           />
+            />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="New Button"
             android:id="@+id/createBtnRecord"
-            android:drawableTop="@drawable/rec"
-            android:background="@android:color/transparent"
-            android:text="Start Recording"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_weight="1.00" />
+            android:background="@drawable/rec"
+            android:layout_below="@+id/txtTimer"
+            android:layout_alignRight="@+id/txtTimer"
+            android:layout_alignEnd="@+id/txtTimer" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/createBtnStop"
-            android:drawableTop="@drawable/stop"
-            android:background="@android:color/transparent"
-            android:text="Stop"/>
     </LinearLayout>
 
     <SeekBar
@@ -82,5 +71,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createBtnStop"
+        android:drawableTop="@drawable/stop"
+        android:background="@android:color/transparent"
+        android:text="Stop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
