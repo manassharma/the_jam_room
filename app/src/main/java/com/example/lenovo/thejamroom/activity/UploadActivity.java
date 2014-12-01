@@ -6,18 +6,15 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-
-import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
-import com.example.lenovo.thejamroom.async.uploadFile;
+
+import java.util.ArrayList;
 
 public class UploadActivity extends Activity {
     TabsAdapter mTabsAdapter;
@@ -38,7 +35,7 @@ public class UploadActivity extends Activity {
         mTabsAdapter.addTab(bar.newTab().setText("Publish"),
                 PublishActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText("Manage"),
-                CreateActivity.class, null);
+                ManageActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

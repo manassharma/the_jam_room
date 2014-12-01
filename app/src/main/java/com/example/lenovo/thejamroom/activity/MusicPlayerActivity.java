@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,30 +15,41 @@ import android.widget.TextView;
 import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
 import com.example.lenovo.thejamroom.pojo.Song;
+import com.example.lenovo.thejamroom.service.MusicPlayerService;
+import com.example.lenovo.thejamroom.util.CommonsUtil;
+import com.example.lenovo.thejamroom.util.FragmentUtil;
 
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class MusicPlayerActivity extends Fragment {
-    boolean isPlaying = true;
-    MediaPlayer mp;
+
+    MediaPlayer mMediaPlayer;
+    Runnable run = new Runnable() {
+        @Override
+        public void run() {
+            if (CommonsUtil.mService.getMediaPlayer() != null && CommonsUtil.mService.isPlaying() && CommonsUtil.mService.isCreated()) {
+                mMediaPlayer = CommonsUtil.mService.getMediaPlayer();
+                int currentPos = mMediaPlayer.getCurrentPosition();
+                if (currentPos < mMediaPlayer.getDuration()) {
+                    bar.setProgress(mMediaPlayer.getCurrentPosition());
+                    seekUpdation(false);
+                } else if (currentPos >= mMediaPlayer.getDuration()) {
+                    next();
+                }
+            }
+        }
+    };
     SeekBar bar;
     Handler seekHandler = new Handler();
-    ArrayList<Song> songsList;
-    int currentSongPos = 0;
-    TextView txtCurrentTime;
     View v;
+    private MusicPlayerService mService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         final View view = inflater.inflate(R.layout.activity_music_player, container, false);
 
-        songsList = ((HomeActivity) getActivity()).getSongs();
-        currentSongPos = ((HomeActivity) getActivity()).getCurrentPosition();
-        mp = new MediaPlayer();
-        createMediaPlayer(view);
-        ImageButton btnPlayPause = (ImageButton)view.findViewById(R.id.btnPlayPause);
+
+        ImageButton btnPlayPause = (ImageButton) view.findViewById(R.id.btnPlayPause);
         btnPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,35 +57,54 @@ public class MusicPlayerActivity extends Fragment {
             }
         });
 
-        ImageButton btnNext = (ImageButton)view.findViewById(R.id.btnNext);
+        ImageButton btnNext = (ImageButton) view.findViewById(R.id.btnNext);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 next();
             }
         });
-        ImageButton btnPrev = (ImageButton)view.findViewById(R.id.btnPrev);
+        ImageButton btnPrev = (ImageButton) view.findViewById(R.id.btnPrev);
         btnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 prev();
             }
         });
-        ImageButton btnShuffle = (ImageButton)view.findViewById(R.id.btnShuffle);
+        ImageButton btnClose = (ImageButton) view.findViewById(R.id.closeBtn);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentUtil.hideMusicPlayerFragment(getActivity());
+                ((HomeActivity)getActivity()).playerButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+        final ImageButton btnStar = (ImageButton) view.findViewById(R.id.btnStar);
+        btnStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar.setImageDrawable(getResources().getDrawable(R.drawable.star_filled));
+            }
+        });
+
+  /*      ImageButton btnShuffle = (ImageButton)view.findViewById(R.id.btnShuffle);
         btnShuffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 shuffle();
             }
-        });
+        });*/
+        bar = (SeekBar) view.findViewById(R.id.seekBar);
 
         bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean fromUser) {
-                 if(fromUser){
-                     mp.seekTo(i);
-                 }
-
+                if (fromUser) {
+                    if(mService!= null && mService.isPlaying()) {
+                        mService.getMediaPlayer().seekTo(i);
+                    }
+                }
             }
 
             @Override
@@ -89,134 +118,108 @@ public class MusicPlayerActivity extends Fragment {
             }
         });
 
-
         v = view;
         return view;
     }
 
-    public void createMediaPlayer(View view){
-        Song  currentSong= songsList.get(currentSongPos);
-
-        bar = (SeekBar)view.findViewById(R.id.seekBar);
-        TextView txtDuration = (TextView)view.findViewById(R.id.txtDuration);
-        TextView txtSongName = (TextView)view.findViewById(R.id.txtSongName);
-        TextView txtSongArtist = (TextView)view.findViewById(R.id.txtSongArtist);
-        txtCurrentTime = (TextView)view.findViewById(R.id.txtCurrentTime);
-        txtSongName.setText(currentSong.getName());
-        txtSongArtist.setText(currentSong.getArtist());
-        mp.reset();
-        try
-        {
-            System.out.println(currentSong.getPath());
-            mp.setDataSource(Constants.SERVER_URL + currentSong.getPath());
-            mp.prepare();
-
-            if(isPlaying) {
-                mp.start();
-            }
-            int millis = mp.getDuration();
-            bar.setMax(millis);
-            String time = convertToMinutes(millis);
-            System.out.println("duration" + millis);
-            txtDuration.setText(time);
-            seekUpdation();
-
+    public void seekUpdation(boolean firstTime) {
+        if (firstTime) {
+            mMediaPlayer = CommonsUtil.mService.getMediaPlayer();
+            bar.setMax(mMediaPlayer.getDuration());
         }
-        catch(IOException e)
-        {
-            Log.v(getString(R.string.app_name), e.getMessage());
-        }
-    }
-
-    Runnable run = new Runnable() {
-        @Override public void run() {
-            int currentPos = mp.getCurrentPosition();
-            if(currentPos < mp.getDuration()){
-                String time = convertToMinutes(currentPos);
-                txtCurrentTime.setText(time);
-                bar.setProgress(mp.getCurrentPosition());
-                seekUpdation();
-            }
-            else if(currentPos >= mp.getDuration()-1200){
-                next();
-            }
-
-        }
-    };
-
-    public String convertToMinutes(int millis){
-        int sec = (millis / 1000) % 60 ;
-        int min = ((millis / (1000*60)) % 60);
-        String minutes= "";
-        String seconds= "";
-
-        if(sec == 0) seconds = "00";
-        else if(sec < 10) seconds = "0"+sec;
-        else seconds = Integer.toString(sec);
-
-        if(min == 0) minutes = "00";
-        else if(min < 10) minutes = "0"+min;
-        else minutes = Integer.toString(min);
-
-        return minutes+":"+seconds;
-    }
-
-    public void seekUpdation() {
         seekHandler.postDelayed(run, 1000);
 
     }
 
-    public void togglePlayPause(){
-        if(!isPlaying){
-            mp.start();
-            isPlaying = true;
-            ((ImageButton)getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.pause));
-        }
-        else{
-            mp.pause();
-            isPlaying = false;
-            ((ImageButton)getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.play_rnd));
+    public void togglePlayPause() {
+        seekHandler.removeCallbacks(run);
+        Song currentSong = CommonsUtil.songsList.get(CommonsUtil.getCurrentSongPos());
+        if (CommonsUtil.mBound) {
+            mService = CommonsUtil.mService;
+            mMediaPlayer = mService.getMediaPlayer();
+            if (mService.isPlaying()) {
+                mService.pauseMediaPlayer();
+                ((ImageButton) getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.play_rnd));
+            } else {
+                // STOPPED, CREATED, EMPTY, -> initialize
+                if (!mService.isCreated()) {
+                    mService.initializePlayer(Constants.SERVER_URL + currentSong.getPath());
+                    populateSongDetails();
+                    ((ImageButton) getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.pause));
+                }
+
+                //prepared, paused -> resume play
+                else if (!mMediaPlayer.isPlaying()) {
+                    mService.startMediaPlayer();
+                    ((ImageButton) getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.pause));
+                }
+            }
         }
     }
 
 
-    public void next(){
-        if(currentSongPos < songsList.size()-1){
-            mp.stop();
-            currentSongPos++;
-            createMediaPlayer(v);
-        }
-        else{
-            currentSongPos = -1;
+    public void next() {
+        mService = CommonsUtil.mService;
+        if (CommonsUtil.getCurrentSongPos() < CommonsUtil.songsList.size() - 1) {
+            if (CommonsUtil.mBound) {
+                if (mService.isCreated() && mService.isPlaying()) {
+                    mService.stopMediaPlayer();
+                }
+                CommonsUtil.setCurrentSongPos(CommonsUtil.getCurrentSongPos() + 1);
+                Song currentSong = CommonsUtil.songsList.get(CommonsUtil.getCurrentSongPos());
+                mService.initializePlayer(Constants.SERVER_URL + currentSong.getPath());
+                populateSongDetails();
+            }
+        } else {
+            CommonsUtil.setCurrentSongPos(-1);
             next();
         }
     }
 
-    public void prev(){
-        if(currentSongPos >= 1){
-            mp.stop();
-            currentSongPos--;
-            createMediaPlayer(v);
-        }
-        else{
-            currentSongPos = songsList.size();
+    public void prev() {
+        mService = CommonsUtil.mService;
+        if (CommonsUtil.getCurrentSongPos() >= 1) {
+            if (CommonsUtil.mBound) {
+                if (mService.isCreated() && mService.isPlaying()) {
+                    mService.stopMediaPlayer();
+                }
+                CommonsUtil.setCurrentSongPos(CommonsUtil.getCurrentSongPos() - 1);
+                Song currentSong = CommonsUtil.songsList.get(CommonsUtil.getCurrentSongPos());
+                mService.initializePlayer(Constants.SERVER_URL + currentSong.getPath());
+                populateSongDetails();
+            }
+        } else {
+            CommonsUtil.setCurrentSongPos(CommonsUtil.songsList.size());
             prev();
         }
     }
 
-    public void shuffle(){
-         mp.stop();
-
-         currentSongPos = randomWithRange(0, songsList.size()-1);
-         createMediaPlayer(v);
-
+    public void populateSongDetails() {
+        Song currentSong = CommonsUtil.songsList.get(CommonsUtil.getCurrentSongPos());
+        TextView txtSongName = (TextView) v.findViewById(R.id.txtSongName);
+        TextView txtSongArtist = (TextView) v.findViewById(R.id.txtSongArtist);
+        txtSongName.setText(currentSong.getName());
+        txtSongArtist.setText(currentSong.getArtist());
     }
 
-    int randomWithRange(int min, int max)
-    {
-        int range = (max - min) + 1;
-        return (int)(Math.random() * range) + min;
+    public void playCurrent() {
+        if (CommonsUtil.mService.isCreated() && CommonsUtil.mService.isPlaying()) {
+            CommonsUtil.mService.stopMediaPlayer();
+        }
+        Song currentSong = CommonsUtil.songsList.get(CommonsUtil.getCurrentSongPos());
+        CommonsUtil.mService.initializePlayer(Constants.SERVER_URL + currentSong.getPath());
+        populateSongDetails();
     }
+
+    public void updateButtons(String status) {
+        if (status.equals("play")) {
+            ((ImageButton) getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.pause));
+        } else {
+            ((ImageButton) getActivity().findViewById(R.id.btnPlayPause)).setImageDrawable(getResources().getDrawable(R.drawable.play_rnd));
+        }
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -229,4 +232,6 @@ public class MusicPlayerActivity extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -1,138 +1,164 @@
 package com.example.lenovo.thejamroom.activity;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
+import android.app.ActivityManager;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.media.MediaPlayer;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageButton;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.util.ArrayList;
-
-import com.example.lenovo.thejamroom.Constants;
 import com.example.lenovo.thejamroom.R;
-import com.example.lenovo.thejamroom.adapter.SongsListAdapter;
-import com.example.lenovo.thejamroom.async.CallAPI;
 import com.example.lenovo.thejamroom.fragment.NavigationDrawerFragment;
-import com.example.lenovo.thejamroom.pojo.Song;
+import com.example.lenovo.thejamroom.fragment.PlaceholderFragment;
+import com.example.lenovo.thejamroom.service.MusicPlayerService;
+import com.example.lenovo.thejamroom.util.CommonsUtil;
+import com.example.lenovo.thejamroom.util.FragmentUtil;
 import com.facebook.Session;
 
-public class HomeActivity extends FragmentActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks,LocationListener {
+public class HomeActivity extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
+    static final public String BROADCAST_RESULT = "com.example.lenovo.thejamroom.BROADCASE_RESULT";
+    public ImageButton playerButton;
+    Intent serviceIntent;
+    BroadcastReceiver receiver;
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private MusicPlayerActivity musicPlayerFragment;
-
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
-    public static ArrayList<Song> songslist;
-    public static int currentPosition;
+    private MusicPlayerService mService;
+    private boolean mBound;
+    /**
+     * Defines callbacks for service binding, passed to bindService()
+     */
+    private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder serviceBinder) {
+            Log.d("MainActivity", "service connected");
 
-    LocationManager locationManager;
-    String provider;
+            //bound with Service. get Service instance
+            MusicPlayerService.MediaPlayerBinder binder = (MusicPlayerService.MediaPlayerBinder) serviceBinder;
+            mService = binder.getService();
+
+            //send this instance to the service, so it can make callbacks on this instance as a client
+            //mService.setClient(MainActivity.this);
+            mBound = true;
+            CommonsUtil.mBound = mBound;
+            CommonsUtil.mService = mService;
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+            CommonsUtil.mBound = mBound;
+            CommonsUtil.mService = mService;
+
+        }
+    };
+
+    public static void callFacebookLogout(Context context) {
+        Session session = Session.getActiveSession();
+        if (session != null) {
+
+            if (!session.isClosed()) {
+                session.closeAndClearTokenInformation();
+                //clear your preferences if saved
+            }
+        } else {
+
+            session = new Session(context);
+            Session.setActiveSession(session);
+
+            session.closeAndClearTokenInformation();
+            //clear your preferences if saved
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        CommonsUtil.initLocationManager();
+        CommonsUtil.calculateLocation();
+
         getActionBar().show();
         getActionBar().setDisplayShowTitleEnabled(false);
+        getActionBar().setDisplayShowTitleEnabled(false);
 
+        setUpNavigationDrawer();
+        initializeButtons();
+        setUpBroadcastReceiver();
+
+        bindToService();
+    }
+
+    private void initializeButtons() {
+        playerButton = (ImageButton) findViewById(R.id.btnPlayer);
+        playerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentUtil.showMusicPlayerFragment(HomeActivity.this);
+                playerButton.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+
+    private void setUpNavigationDrawer() {
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
-
-        musicPlayerFragment = new MusicPlayerActivity();
-
-        getActionBar().setDisplayShowTitleEnabled(false);
-
-
-        //Location Service
-        // Get the location manager
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        // Define the criteria how to select the locatioin provider -> use
-        // default
-
-        Location location = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
-        if (location != null) {
-            System.out.println("Provider " + provider + " has been selected.");
-            onLocationChanged(location);
-        } else {
-            Toast.makeText(this, "Location Not available!!", Toast.LENGTH_SHORT);
-        }
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
     }
+
+    private void setUpBroadcastReceiver() {
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                System.out.println("receiving message broadcast");
+                String rec = intent.getStringExtra("MUSIC_PLAYER_STATUS");
+                MusicPlayerActivity m = (MusicPlayerActivity) getFragmentManager().findFragmentById(R.id.musicPlayerContainer);
+                if (rec.equals("PLAYER_INIT")) {
+                    m.seekUpdation(true);
+                    m.updateButtons("play");
+                    FragmentUtil.showMusicPlayerFragment(HomeActivity.this);
+                } else if (rec.equals("PLAYER_PAUSED")) {
+                    m.updateButtons("pause");
+                    FragmentUtil.hideMusicPlayerFragment(HomeActivity.this);
+                    playerButton.setVisibility(View.VISIBLE);
+                }
+            }
+        };
+    }
+
     @Override
     public void onPause() {
         super.onPause();  // Always call the superclass method first
-        locationManager.removeUpdates(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 0, 0, this);
-    }
-
-    @Override
-    public void onLocationChanged(Location loc) {
-        double lat = loc.getLatitude();
-        double lng = loc.getLongitude();
-        String txt = lat +"  ,  " + lng;
-        System.out.println("LOCATION: "+ txt);
-
-    }
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-        Toast.makeText(this, "Enabled new provider " + provider,
-                Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        Toast.makeText(this, "Disabled provider " + provider,
-                Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+        FragmentUtil.createMusicPlayerFragment(this, R.id.musicPlayerContainer);
+
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
@@ -166,7 +192,6 @@ public class HomeActivity extends FragmentActivity
         actionBar.setTitle(mTitle);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -195,21 +220,12 @@ public class HomeActivity extends FragmentActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public ArrayList<Song> getSongs(){
-        return songslist;
-    }
-
-    public int getCurrentPosition(){
-        return currentPosition;
-    }
-
     @Override
     public void onBackPressed() {
 
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             System.out.println("in-if");
             super.onBackPressed();
-            System.exit(0);
         } else {
             System.out.println("in-else");
             getFragmentManager().popBackStack();
@@ -217,109 +233,59 @@ public class HomeActivity extends FragmentActivity
         }
     }
 
-    public static void callFacebookLogout(Context context) {
-        Session session = Session.getActiveSession();
-        if (session != null) {
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //  mService.onDestroy();
+        //  stopService(serviceIntent);
+        //  unbindService(mConnection);
+    }
 
-            if (!session.isClosed()) {
-                session.closeAndClearTokenInformation();
-                //clear your preferences if saved
-            }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver((receiver), new IntentFilter(BROADCAST_RESULT));
+    }
+
+    @Override
+    protected void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        super.onStop();
+    }
+
+    /**
+     * Binds to the instance of MediaPlayerService. If no instance of MediaPlayerService exists, it first starts
+     * a new instance of the service.
+     */
+    public void bindToService() {
+        serviceIntent = new Intent(getApplicationContext(), MusicPlayerService.class);
+
+        if (MediaPlayerServiceRunning()) {
+            // Bind to LocalService
+            bindService(serviceIntent, mConnection, Context.BIND_AUTO_CREATE);
         } else {
-
-            session = new Session(context);
-            Session.setActiveSession(session);
-
-            session.closeAndClearTokenInformation();
-            //clear your preferences if saved
-
+            startService(serviceIntent);
+            bindService(serviceIntent, mConnection, Context.BIND_AUTO_CREATE);
         }
 
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * Determines if the MediaPlayerService is already running.
+     *
+     * @return true if the service is running, false otherwise.
      */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        static Cursor c;
-        MusicPlayerActivity musicPlayerFragment;
-        MediaPlayer mp = new MediaPlayer();
+    private boolean MediaPlayerServiceRunning() {
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-            String result ="";
-            try {
-                CallAPI api = new CallAPI();
-                String uri[] = {Constants.SERVER_URL + Constants.SONGS_URL};
-                api.execute(uri);
-                result = api.get();
-                System.out.println("result" + result);
-                songslist = new ArrayList<Song>();
-
-                JSONArray arr = new JSONArray(result);
-                for (int i = 0; i < arr.length(); i++) {
-                    JSONObject jsonProductObject = arr.getJSONObject(i);
-                    Song song = new Song();
-                    song.setName(jsonProductObject.getString("name"));
-                    song.setArtist(jsonProductObject.getString("artist"));
-                    song.setGenre(jsonProductObject.getString("genere"));
-                    song.setLocation(jsonProductObject.getString("location"));
-                    song.setPath(jsonProductObject.getString("path"));
-
-                    songslist.add(song);
-                    ListView songsListView = (ListView)rootView.findViewById(R.id.songsList);
-                    songsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                            currentPosition = position;
-                            FragmentManager fragmentManager = getFragmentManager();
-                            FragmentTransaction ft = fragmentManager.beginTransaction();
-                            ft.replace(R.id.container, new MusicPlayerActivity());
-                            ft.addToBackStack(null);
-                            ft.commit();
-                        }
-                    });
-                    SongsListAdapter adapter = new SongsListAdapter(getActivity(),songslist);
-                    songsListView.setAdapter(adapter);
-                }
-
-            }catch(Exception e){
-                e.printStackTrace();
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if ("com.example.lenovo.thejamroom.MediaPlayerService".equals(service.service.getClassName())) {
+                return true;
             }
-
-            return rootView;
         }
 
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((HomeActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
+        return false;
     }
 
 }

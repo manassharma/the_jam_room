@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lenovo.thejamroom.R;
+import com.example.lenovo.thejamroom.util.UserSession;
+import com.facebook.widget.ProfilePictureView;
 
 
 /**
@@ -22,6 +24,9 @@ public class NavigationDrawerAdapter extends ArrayAdapter<String> {
     private static LayoutInflater inflater=null;
     String [] values;
     Integer [] images;
+    ProfilePictureView profilePictureView =null ;
+    TextView txtName = null;
+    TextView txtEmail = null;
     public NavigationDrawerAdapter(Context context, int resource, String[] objects, Integer[] images){
         super(context, resource, objects);
         values = objects;
@@ -39,25 +44,42 @@ public class NavigationDrawerAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        inflater = ((Activity)context).getLayoutInflater();
         View rowView = null;
-        rowView = inflater.inflate(R.layout.navigation_list_item, null, true);
+       if(position == 0){
+           inflater = ((Activity) context).getLayoutInflater();
+           rowView = inflater.inflate(R.layout.navgation_list_profile_item, null, true);
+           profilePictureView = (ProfilePictureView) rowView.findViewById(R.id.selection_profile_pic);
+           profilePictureView.setCropped(true);
 
-        TextView label = (TextView)rowView.findViewById(R.id.navItemLabel);
-        ImageView imageView = (ImageView)rowView.findViewById(R.id.navIcon);
+           profilePictureView.setProfileId(UserSession.getUserId());
 
-        label.setText(values[position]);
-        imageView.setImageDrawable(context.getResources().getDrawable(images[position]));
+           txtName = (TextView)rowView.findViewById(R.id.txtName);
+           txtName.setText(UserSession.getName());
 
-        if(position == mSelectedItem){
-            label.setTextColor(getContext().getResources().getColor(R.color.orange));
-            label.setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
-            rowView.setBackgroundColor(getContext().getResources().getColor(R.color.black_overlay));
-        }
-        else{
-            label.setTextColor(getContext().getResources().getColor(R.color.white));
-        }
+           txtEmail = (TextView)rowView.findViewById(R.id.txtEmail);
+           txtEmail.setText(UserSession.getUsername());
+
+       }
+        else {
+           inflater = ((Activity) context).getLayoutInflater();
+           rowView = inflater.inflate(R.layout.navigation_list_item, null, true);
+
+           TextView label = (TextView) rowView.findViewById(R.id.navItemLabel);
+           ImageView imageView = (ImageView) rowView.findViewById(R.id.navIcon);
+
+           label.setText(values[position]);
+           imageView.setImageDrawable(context.getResources().getDrawable(images[position]));
+
+           if (position == mSelectedItem+1) {
+               label.setTextColor(getContext().getResources().getColor(R.color.orange));
+               label.setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
+               rowView.setBackgroundColor(getContext().getResources().getColor(R.color.black_overlay));
+           } else {
+               label.setTextColor(getContext().getResources().getColor(R.color.white));
+           }
+
+       }
         return rowView;
     }
+
 }

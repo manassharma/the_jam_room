@@ -16,42 +16,15 @@
         android:layout_marginTop="40dp"
         android:id="@+id/linearLayout">
 
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtSongName"
-            android:layout_gravity="center_horizontal"
-            android:hint="Song Title"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10dp" />
 
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:hint="Artist"
-            android:layout_marginTop="10dp" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtfileName"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:hint="FileName"
-            android:layout_marginTop="10dp" />
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Song Details"
+            android:id="@+id/textView"
             android:layout_gravity="center_horizontal"
-            android:showDividers="middle">
-
-
-        </LinearLayout>
+            android:layout_centerHorizontal="true" />
 
 
     </LinearLayout>
@@ -70,7 +43,7 @@
         android:layout_centerHorizontal="true" />
 
     <Spinner
-        android:layout_width="292dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/spinGenre"
         android:gravity="center|center_horizontal"
@@ -78,5 +51,38 @@
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editFileName"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:hint="FileName"
+        android:layout_above="@+id/spinGenre"
+        android:layout_alignLeft="@+id/spinGenre"
+        android:layout_alignStart="@+id/spinGenre" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editArtist"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:hint="Artist"
+        android:layout_above="@+id/editFileName"
+        android:layout_alignLeft="@+id/editFileName"
+        android:layout_alignStart="@+id/editFileName" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editSongName"
+        android:layout_gravity="center_horizontal"
+        android:hint="Song Title"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/editArtist"
+        android:layout_alignLeft="@+id/editArtist"
+        android:layout_alignStart="@+id/editArtist" />
 
 </RelativeLayout>

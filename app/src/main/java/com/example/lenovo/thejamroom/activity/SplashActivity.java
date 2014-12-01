@@ -15,6 +15,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.example.lenovo.thejamroom.R;
+import com.example.lenovo.thejamroom.util.CommonsUtil;
+import com.example.lenovo.thejamroom.util.FragmentUtil;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,6 +29,9 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getActionBar().hide();
+
+        CommonsUtil.ApplicationContext = getApplicationContext();
+        FragmentUtil.ApplicationContext = getApplicationContext();
 
         setContentView(R.layout.activity_splash);
         try {

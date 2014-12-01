@@ -97,13 +97,14 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
+                selectItem(position-1);
             }
         });
         mDrawerListView.setAdapter(new NavigationDrawerAdapter(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 new String[]{
+                        "User",
                         getString(R.string.title_home),
                         getString(R.string.title_browse),
                         getString(R.string.title_playlist),
@@ -111,6 +112,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_settings)
                 },
                 new Integer[]{
+                    R.drawable.ic_launcher,
                     R.drawable.home,
                     R.drawable.search,
                     R.drawable.list,
@@ -201,7 +203,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void selectItem(int position) {
         mCurrentSelectedPosition = position;
-
 
         if (mDrawerListView != null) {
            ((NavigationDrawerAdapter)mDrawerListView.getAdapter()).setSelectedItem(position);
